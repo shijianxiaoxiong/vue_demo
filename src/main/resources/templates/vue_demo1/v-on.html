@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+</head>
+<body>
+<div id="app">
+    <button v-on:click="sayHi">点击我</button>
+</div>
+<!--在这里我们使用了 v-on 绑定了 click 事件 并指定了名为 sayHi 的方法 -->
+<!-- v-on 指令的简写形式 @ -->
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            msg:"hello hity"
+        },
+        methods:{                           // 方法必须定义在 Vue 实例的 methods 对象中
+            sayHi:function (event) {
+                alert(this.msg);            // `this` 在方法里指向当前 Vue 实例
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

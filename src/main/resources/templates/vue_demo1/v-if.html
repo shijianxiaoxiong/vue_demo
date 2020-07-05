@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1 v-if="type">我叫tanghs</h1>
+        <h1 v-else-if="type">我是大馒头</h1>
+        <h1 v-else-if="type">我是爱跳跳</h1>
+        <h1 v-else="type">我是hello kity</h1>
+    </div>
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            type:"我叫tanghs"
+        }
+    })
+</script>
+
+</body>
+</html>

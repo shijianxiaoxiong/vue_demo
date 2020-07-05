@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+</head>
+<body>
+<!--如果要将模型数据绑定在html属性中
+    则使用 v-bind 指令,此时title中显示的是模型数据 -->
+<div id="app">
+    <!-- v-bind 指令的简写形式： 冒号（:） -->
+    <span v-bind:title="message">将鼠标炫富在这句话上看看效果</span>
+</div>
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            message:"页面加载于："+ new Date().toLocaleDateString(),
+        },
+    });
+
+</script>
+
+</body>
+</html>
+<!--
+    除了使用插值表达式{{}}进行数据渲染，也可以使用 v-bind指令，它的简写的形式就是一个冒号（:）-->

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-model</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+</head>
+<body>
+<!--选中的值 用于展示v-model双向数据绑定的结果-->
+
+<!------------------单选按钮----------------->
+
+<!--<div id="app">
+    单选按钮：
+    <input type="radio" id="one" value="男" v-model="checked">
+    <label for="one">男</label>
+    <input type="radio" id="two" value="女" v-model="checked">
+    <label for="two">女</label><br>
+    <span>选中的值: {{ checked }}</span> </div>-->
+
+    <!------------------输入文本----------------->
+
+ <!--   <input type="text" value="123" v-model="textValue">
+    <span>输入的值为：{{ textValue }}</span>-->
+
+    <!-----------------复选框------------------->
+
+<!--<div id="app">
+    <input type="checkbox" value="1" v-model="checkBox">
+    <input type="checkbox" value="2" v-model="checkBox">
+    <input type="checkbox" value="3" v-model="checkBox"><br>
+    <span>选中的值：{{checkBox}}</span>
+    </div>-->
+
+    <!-----------------下拉框------------------->
+    <div id="app">
+        <select v-model="selected">
+            <option disabled value="">请选择姓名</option>
+            <option value="1">张三</option>
+            <option value="2">李四</option>
+            <option value="3">王五</option>
+        </select>
+        <span>选中的值：{{selected}}</span>
+    </div>
+
+
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            checked:"",
+            textValue:"",
+            checkBox:[],
+            selected:"",
+        },
+        methods:{},
+    })
+
+</script>
+
+</body>
+</html>

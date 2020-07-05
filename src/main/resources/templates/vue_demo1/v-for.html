@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+</head>
+<body>
+    <div id="app">
+       <!-- index是items的下标指针，item代表value-->
+        <h1 v-for="item,index in items" v-if="index < 3" >
+        {{item.msg}}
+        </h1>
+       <!-- 排序，不换行。使用冒号给value或者src直接赋值-->
+        <input type="text" v-for="item,index in items" v-if="index < 3":value="item.msg"/><br>
+        图片：
+        <img v-for="item,index in items" v-if="index < 3" src="item.msg">
+
+
+    </div>
+
+<script>
+    var vue =new Vue({
+        el:"#app",
+        data:{
+            items:[
+                {msg:"hello hity"},
+                {msg:"hello world"},
+                {msg:"hello dingdangmao"},
+                {msg:"hello maotou"},
+                {msg:"hello xiaoxiong"},
+            ]
+        },
+        methods:{}
+    });
+
+</script>
+
+
+</body>
+</html>
