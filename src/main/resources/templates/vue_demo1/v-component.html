@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+</head>
+<body>
+<!--<div id="app">
+    <tanghs title="123"></tanghs>
+</div>-->
+<div id="app">
+<tang_hs v-for="item,index in items" v-bind:test="item"></tang_hs>   <!--一定要记得v-bind用来绑定item与Vue里的data-->
+</div>
+
+<script>
+
+    //Vue组件要方式Vue实例前
+    Vue.component('tang_hs', {
+        props: ['test'],                    //pros 相当于定义参数，用来传参
+        template: '<h3>{{ test }}</h3>'
+    })
+
+    var vue = new Vue({
+       el:"#app",
+       data:{
+           items:["123","456","789"],                         //在vue实例里定义好对象
+       },
+    });
+
+</script>
+
+</body>
+</html>
