@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>v-computed</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <ul>
+        <li>{{currentTime()}}</li>
+        <li>{{currentTime2}}</li>
+    </ul>
+</div>
+
+<script>
+    'use strict'
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            msg:"hello kity",
+        },
+        methods:{
+            currentTime:function (e) {
+                this.msg;
+               return Date.now();
+            }
+        },
+        computed:{
+            //currentTime2 ，这是一个属性！不是方法,
+            currentTime2:function (e) {
+                this.msg;
+                return Date.now();
+            }
+        }
+    })
+</script>
+
+</body>
+</html>
