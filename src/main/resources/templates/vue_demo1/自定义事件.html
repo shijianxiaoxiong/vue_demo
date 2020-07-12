@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义事件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+</head>
+<body>
+<div id="app">
+    <!-- <p>书籍列表</p>
+     <ul>
+         <li>java</li>
+         <li>python</li>
+         <li>c++</li>
+     </ul>-->
+
+    <todo>
+        <todo-title slot="todo-title":title="title"></todo-title>    <!--使用插槽slot-->
+        <todo-items slot="todo-items" v-for="(item,index) in items" :key="index" :item="item"
+                    :index="index" v-on:remove-items="removeItems(index)"></todo-items> <!--注意v-on此处绑定的自定义事件名一定
+                   要用小写,否则会冲突-->
+    </todo>
+</div>
+
+<script>
+
+    //solt插槽
+    Vue.component("todo",{
+        template:
+            '<div>\
+                <slot name="todo-title"></slot>\
+                <ul>\
+                <slot name="todo-items"></slot>\
+                </ul>\
+            </div>'
+    })
+
+    Vue.component("todo-title",{
+        props:["title"],
+        template:'<div>{{title}}</div>'
+    });
+    Vue.component("todo-items",{
+        props:["item","index"],
+        template:
+            '<li>{{index}}--{{item}} <button @click="remove">刪除</button></li>' ,   //添加删除按钮
+        methods: {
+            remove:function (index) {
+               this.$emit("remove-items",index);     //自定义事件分发
+            }
+        }
+
+    });
+
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            title:"学习好前端vue!",
+            items:["学java","学前端","学vue"],
+        },
+        methods:{
+            removeItems:function (index) {
+                this.items.splice(index,1)      //删除下标index,删除个数:1个
+            }
+        },
+
+    })
+
+</script>
+</body>
+</html>
